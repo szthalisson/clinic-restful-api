@@ -1,3 +1,9 @@
 from django.contrib import admin
+from api.models import Doctor
 
-# Register your models here.
+
+class DoctorAdmin(admin.ModelAdmin):
+  list_display = ['cpf', 'name', 'admission', 'wage']
+  search_fields = ('name','cpf',)
+
+admin.site.register(Doctor, DoctorAdmin)
