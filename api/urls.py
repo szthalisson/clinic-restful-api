@@ -4,7 +4,7 @@ from django.urls import path, include
 
 
 router = DefaultRouter()
-router.register(r'doctor', DoctorViewSet, basename='doctor')
+router.register(r'doctors', DoctorViewSet, basename='doctors')
 
 urlpatterns = [
   path('', include(router.urls))
