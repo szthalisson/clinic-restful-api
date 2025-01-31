@@ -35,3 +35,4 @@ class Patient(models.Model):
     if not self.code:
       last_code = Patient.objects.order_by('-code').first()
       self.code = (last_code + 1) if last_code else 100
+    super().save(*args, **kwargs)
