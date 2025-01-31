@@ -33,6 +33,6 @@ class Patient(models.Model):
 
   def save(self, *args, **kwargs):
     if not self.code:
-      last_code = Patient.objects.order_by('-code').first()
+      last_code = Patient.objects.order_by('-code').values_list('code', flat=True).first()
       self.code = (last_code + 1) if last_code else 100
     super().save(*args, **kwargs)
